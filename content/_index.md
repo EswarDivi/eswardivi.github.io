@@ -21,7 +21,7 @@ sections:
           icon_pack: fab
         - name: MongoDB
           description: Proficient
-          icon: fa-database
+          icon: database
           icon_pack: fas
         - name: Pinecone Vector Database
           description: Proficient
