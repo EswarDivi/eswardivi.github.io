@@ -16,9 +16,45 @@ sections:
       title: Skills
       items:
         - name: python
-          description: 90%
+          description: Advanced
           icon: python
           icon_pack: fab
+        - name: MongoDB
+          description: Proficient
+          icon: database
+          icon_pack: fab
+        - name: Pinecone Vector Database
+          description: Proficient
+          icon: database
+          icon_pack: fass
+        - name: Postgresql
+          description: Familiar
+          icon: database
+          icon_pack: fad
+        - name: TensorFlow
+          description: Advanced
+          icon: code
+          icon_pack: fas
+        - name: PyTorch
+          description: Advanced
+          icon: code
+          icon_pack: fas
+        - name: Scikit-learn
+          description: Advanced
+          icon: code
+          icon_pack: fas
+        - name: Hugging Face
+          description: Advanced
+          icon: code
+          icon_pack: fas
+        - name: Docker
+          description: Proficient
+          icon: docker
+          icon_pack: fab
+        - name: FastAPI
+          description: Proficient
+          icon: code
+          icon_pack: fas
   - block: experience
     content:
       title: Experience
