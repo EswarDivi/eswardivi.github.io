@@ -19,62 +19,43 @@ sections:
         description: Advanced
         icon: python
         icon_pack: fab
-      - name: Matlab
-        description: Intermediate
-        icon: matlab
-        icon_pack: fab
-      - name: Julia
-        description: Proficient
-        icon: jupyter
-        icon_pack: fab
-      - name: Java
-        description: Familiar
-        icon: java
-        icon_pack: fab
       - name: MongoDB
-        description: Experienced
+        description: Proficient
         icon: database
         icon_pack: fas
       - name: Pinecone Vector Database
         description: Proficient
         icon: database
         icon_pack: fas
-      - name: PostgreSQL
-        description: Experienced
+      - name: Postgresql
+        description: Proficient
         icon: database
         icon_pack: fas
       - name: TensorFlow
         description: Advanced
-        icon: tensorflow
-        icon_pack: fab
-      - name: PyTorch
-        description: Advanced
-        icon: torch
-        icon_pack: fab
-      - name: Scikit-learn
-        description: Proficient
-        icon: python
-        icon_pack: fab
-      - name: Hugging Face
-        description: Proficient
-        icon: python
-        icon_pack: fab
-      - name: VS Code
-        description: Experienced
         icon: code
         icon_pack: fas
-      - name: Jupyter
-        description: Experienced
-        icon: jupyter
-        icon_pack: fab
+      - name: PyTorch
+        description: Advanced
+        icon: code
+        icon_pack: fas
+      - name: Scikit-learn
+        description: Advanced
+        icon: code
+        icon_pack: fas
+      - name: Hugging Face
+        description: Advanced
+        icon: code
+        icon_pack: fas
       - name: Docker
-        description: Familiar
+        description: Proficient
         icon: docker
         icon_pack: fab
       - name: FastAPI
         description: Proficient
         icon: code
         icon_pack: fas
+
   - block: experience
     content:
       title: Experience
