@@ -104,29 +104,53 @@ sections:
       #   Leave other parameters empty if not required.
       #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
       items:
-        - certificate_url: https://www.coursera.org
+        - certificate_url: https://www.coursera.org/account/accomplishments/verify/5XZG4TYKK4BN
           date_end: ''
-          date_start: '2021-01-25'
+          date_start: ''
           description: ''
           organization: Coursera
           organization_url: https://www.coursera.org
-          title: Neural Networks and Deep Learning
+          title: Convolutional Neural Networks in TensorFlow
           url: ''
-        - certificate_url: https://www.edx.org
+        - certificate_url: https://www.linkedin.com/learning/certificates/391b545f83ae497dadfd37a7d24cde1e12f1b2474b594718134f854583cff07a?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BGpDdVWltS8iSTX8WT1E78A%3D%3D
           date_end: ''
-          date_start: '2021-01-01'
-          description: Formulated informed blockchain models, hypotheses, and use cases.
-          organization: edX
-          organization_url: https://www.edx.org
-          title: Blockchain Fundamentals
-          url: https://www.edx.org/professional-certificate/uc-berkeleyx-blockchain-fundamentals
-        - certificate_url: https://www.datacamp.com
-          date_end: '2020-12-21'
-          date_start: '2020-07-01'
+          date_start: ''
           description: ''
-          organization: DataCamp
-          organization_url: https://www.datacamp.com
-          title: 'Object-Oriented Programming in R'
+          organization: LinkedIn
+          organization_url: https://www.linkedin.com
+          title: PyTorch Essential Training Deep Learning.
+          url: 
+        - certificate_url: https://www.credential.net/271ce21d-4c06-4ba8-b3e1-09c39b79352a
+          date_end: ''
+          date_start: ''
+          description: ''
+          organization: CoRise
+          organization_url: https://corise.com/
+          title: 'Python for Datascience'
+          url: ''
+        - certificate_url: https://www.credential.net/1acd0e13-60a4-4ba1-ab0b-68cbd25fb6f7
+          date_end: ''
+          date_start: ''
+          description: ''
+          organization: Corise
+          organization_url: https://corise.com/
+          title: 'SQL Crash Course'
+          url: ''
+        - certificate_url: uploads/Jax.png
+          date_end: ''
+          date_start: ''
+          description: ''
+          organization: HuggingFace
+          organization_url: https://huggingface.co/
+          title: 'JAX Diffusers Sprint'
+          url: ''
+        - certificate_url: uploads/Sklearn.png
+          date_end: ''
+          date_start: ''
+          description: ''
+          organization: HuggingFace
+          organization_url: https://huggingface.co/
+          title: 'Scikit-learn Hugging Face Sprint'
           url: ''
     design:
       columns: '2'
