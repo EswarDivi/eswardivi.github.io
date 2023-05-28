@@ -21,16 +21,16 @@ sections:
           icon_pack: fab
         - name: MongoDB
           description: Proficient
-          icon: database
-          icon_pack: fab
+          icon: fa-database
+          icon_pack: fas
         - name: Pinecone Vector Database
           description: Proficient
           icon: database
-          icon_pack: fass
+          icon_pack: fas
         - name: Postgresql
           description: Familiar
           icon: database
-          icon_pack: fass
+          icon_pack: fas
         - name: TensorFlow
           description: Advanced
           icon: code
