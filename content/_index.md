@@ -11,22 +11,70 @@ sections:
       title: Biography
       # Choose a user profile to display (a folder name within `content/authors/`)
       username: admin
-  - block: features
-    content:
-      title: Skills
-      items:
-        - name: R
-          description: 90%
-          icon: r-project
-          icon_pack: fab
-        - name: Statistics
-          description: 100%
-          icon: chart-line
-          icon_pack: fas
-        - name: Photography
-          description: 10%
-          icon: camera-retro
-          icon_pack: fas
+- block: features
+  content:
+    title: Skills
+    items:
+      - name: Python
+        description: Advanced
+        icon: python
+        icon_pack: fab
+      - name: Matlab
+        description: Intermediate
+        icon: matlab
+        icon_pack: fab
+      - name: Julia
+        description: Proficient
+        icon: jupyter
+        icon_pack: fab
+      - name: Java
+        description: Familiar
+        icon: java
+        icon_pack: fab
+      - name: MongoDB
+        description: Experienced
+        icon: database
+        icon_pack: fas
+      - name: Pinecone Vector Database
+        description: Proficient
+        icon: database
+        icon_pack: fas
+      - name: PostgreSQL
+        description: Experienced
+        icon: database
+        icon_pack: fas
+      - name: TensorFlow
+        description: Advanced
+        icon: tensorflow
+        icon_pack: fab
+      - name: PyTorch
+        description: Advanced
+        icon: torch
+        icon_pack: fab
+      - name: Scikit-learn
+        description: Proficient
+        icon: python
+        icon_pack: fab
+      - name: Hugging Face
+        description: Proficient
+        icon: python
+        icon_pack: fab
+      - name: VS Code
+        description: Experienced
+        icon: code
+        icon_pack: fas
+      - name: Jupyter
+        description: Experienced
+        icon: jupyter
+        icon_pack: fab
+      - name: Docker
+        description: Familiar
+        icon: docker
+        icon_pack: fab
+      - name: FastAPI
+        description: Proficient
+        icon: code
+        icon_pack: fas
   - block: experience
     content:
       title: Experience
