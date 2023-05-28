@@ -122,7 +122,7 @@ sections:
           url: 
         - certificate_url: https://www.credential.net/271ce21d-4c06-4ba8-b3e1-09c39b79352a
           date_end: ''
-          date_start: '2022-10-25'
+          date_start: '2023-04-25'
           description: ''
           organization: CoRise
           organization_url: https://corise.com/
