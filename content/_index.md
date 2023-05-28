@@ -14,47 +14,57 @@ sections:
   - block: features
     content:
       title: Skills
-      items:
-        - name: python
-          description: Advanced
-          icon: python
-          icon_pack: fab
-        - name: MongoDB
-          description: Proficient
-          icon: database
-          icon_pack: fas
-        - name: Pinecone Vector Database
-          description: Proficient
-          icon: database
-          icon_pack: fas
-        - name: Postgresql
-          description: Familiar
-          icon: database
-          icon_pack: fas
-        - name: TensorFlow
-          description: Advanced
-          icon: code
-          icon_pack: fas
-        - name: PyTorch
-          description: Advanced
-          icon: code
-          icon_pack: fas
-        - name: Scikit-learn
-          description: Advanced
-          icon: code
-          icon_pack: fas
-        - name: Hugging Face
-          description: Advanced
-          icon: code
-          icon_pack: fas
-        - name: Docker
-          description: Proficient
-          icon: docker
-          icon_pack: fab
-        - name: FastAPI
-          description: Proficient
-          icon: code
-          icon_pack: fas
+    design:
+      css_class: "skills-block"
+    items:
+      - name: Python
+        description: Advanced
+        icon: python
+        icon_pack: fab
+      - name: TensorFlow
+        description: Advanced
+        icon: code
+        icon_pack: fas
+      - name: PyTorch
+        description: Advanced
+        icon: code
+        icon_pack: fas
+      - name: Scikit-learn
+        description: Advanced
+        icon: code
+        icon_pack: fas
+      - name: Hugging Face
+        description: Advanced
+        icon: code
+        icon_pack: fas
+  - block: features
+    content:
+      title: Database
+    design:
+      css_class: "skills-block"
+    items:
+      - name: MongoDB
+        description: Proficient
+        icon: database
+        icon_pack: fas
+      - name: Pinecone Vector Database
+        description: Proficient
+        icon: database
+        icon_pack: fas
+      - name: Postgresql
+        description: Familiar
+        icon: database
+        icon_pack: fas
+      - name: Docker
+        description: Proficient
+        icon: docker
+        icon_pack: fab
+      - name: FastAPI
+        description: Proficient
+        icon: code
+        icon_pack: fas
+
+        
   - block: experience
     content:
       title: Experience
