@@ -30,7 +30,7 @@ sections:
         - name: Postgresql
           description: Familiar
           icon: database
-          icon_pack: fad
+          icon_pack: fass
         - name: TensorFlow
           description: Advanced
           icon: code
