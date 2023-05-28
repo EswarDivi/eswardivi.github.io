@@ -19,42 +19,7 @@ sections:
         description: Advanced
         icon: python
         icon_pack: fab
-      - name: MongoDB
-        description: Proficient
-        icon: database
-        icon_pack: fas
-      - name: Pinecone Vector Database
-        description: Proficient
-        icon: database
-        icon_pack: fas
-      - name: Postgresql
-        description: Proficient
-        icon: database
-        icon_pack: fas
-      - name: TensorFlow
-        description: Advanced
-        icon: code
-        icon_pack: fas
-      - name: PyTorch
-        description: Advanced
-        icon: code
-        icon_pack: fas
-      - name: Scikit-learn
-        description: Advanced
-        icon: code
-        icon_pack: fas
-      - name: Hugging Face
-        description: Advanced
-        icon: code
-        icon_pack: fas
-      - name: Docker
-        description: Proficient
-        icon: docker
-        icon_pack: fab
-      - name: FastAPI
-        description: Proficient
-        icon: code
-        icon_pack: fas
+
 
   - block: experience
     content:
