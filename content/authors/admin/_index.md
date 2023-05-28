@@ -1,7 +1,7 @@
 ---
 title: Divi Eswar Chowdary
 role: "Student Pursing Major in Artificial Intelligence "
-avatar_filename: social.jpeg
+avatar_filename: avatar.jpg
 bio: "I have a profound interest in exploring the fascinating fields of image
   processing, generative AI, and NLP. These areas of research have the power to
   revolutionize various industries, such as healthcare, computer vision, art,
