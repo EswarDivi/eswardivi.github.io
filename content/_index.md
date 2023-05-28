@@ -11,16 +11,14 @@ sections:
       title: Biography
       # Choose a user profile to display (a folder name within `content/authors/`)
       username: admin
-- block: features
-  content:
-    title: Skills
-    items:
-      - name: Python
-        description: Advanced
-        icon: python
-        icon_pack: fab
-
-
+  - block: features
+    content:
+      title: Skills
+      items:
+        - name: python
+          description: 90%
+          icon: python
+          icon_pack: fab
   - block: experience
     content:
       title: Experience
