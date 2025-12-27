@@ -56,8 +56,8 @@ export class Work {
   @Field(() => String)
   end: string;
 
-  @Field(() => String)
-  description: string;
+  @Field(() => [String])
+  description: string[];
 }
 
 @ObjectType()

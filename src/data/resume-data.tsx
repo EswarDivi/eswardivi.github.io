@@ -54,8 +54,13 @@ export const RESUME_DATA = {
       title: "Data Scientist",
       start: "2024 July",
       end: "Present",
-      description:
-        "",
+      description: [
+        "Contributes to the Digital Factory AI for Safety & Operations platform, improving safety, compliance, and efficiency across 30+ locations and 800+ cameras.",
+        "Developed and optimized computer vision models for hard hat detection, coverall detection, and real-time forklift proximity monitoring.",
+        "Enhanced mechanical lifting compliance detection, improving alert accuracy from 70% to 90% by introducing a depth-estimation model and upgrading to VideoMAE video classification.",
+        "Built the \"People Finder - AI Knowledge Agent,\" an AI chatbot for employee queries using an internal People Database.",
+        "Used LangChain and LangGraph for agentic workflows and implemented hybrid retrieval pipelines using SQL-based filters and vector embeddings."
+      ],
     },
     {
       company: "Schlumberger",
@@ -64,10 +69,11 @@ export const RESUME_DATA = {
       title: "Data Scientist Intern",
       start: "2023 June",
       end: "2023 August",
-      description:
-        "Worked on creating product embeddings using multi-task learning based on RFM attributes.",
+      description: [
+        "Built deep learning-based product embeddings for Supply Chain Intelligence to recommend alternatives and support decision-making.",
+        "Designed a multi-task learning architecture using RFM attributes and product metadata to generate unified embeddings."
+      ],
     },
-
   ],
   skills: [
     "Deep Learning: PyTorch, Lightning AI, Transformers",
