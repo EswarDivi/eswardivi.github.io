@@ -127,6 +127,32 @@ export const RESUME_DATA = {
         href: "https://chatwithpdf.streamlit.app/",
       },
     },
+    {
+      title: "MedGPT: GPT for Medical Diagnostics",
+      techStack: [
+        "Python",
+        "Llama 2",
+        "RAG",
+        "Fine-tuning",
+      ],
+      description:
+        "Developed a medical chatbot by fine-tuning the LLama 2 model using efficient fine-tuning methods. Additionally, incorporated the Retrieval Augmented Generation (RAG) to enhance the output quality of generated responses. For this project, dataset was created by translating an existing Korean dataset into English.",
+    },
+    {
+      title: "RosBot: Self-Driven Robot with Obstacle Avoidance",
+      techStack: [
+        "ROS",
+        "TensorRT",
+        "Resnet18",
+        "OpenCV",
+      ],
+      description:
+        "Designed and implemented RosBot, a self-driving robot with obstacle avoidance, using ROS, TensorRT, Resnet18, and OpenCV. Optimized Resnet18 model with TensorRT for accurate obstacle detection and utilized OpenCV for efficient image processing.",
+      link: {
+        label: "github.com",
+        href: "https://github.com/EswarDivi/rosbot",
+      },
+    },
   ],
   researchPapers: [
     {
