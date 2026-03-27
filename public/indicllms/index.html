@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IndicLLMs – Giving India a Voice in AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --neo-bg: #FFFDF5;
+      --neo-ink: #000000;
+      --neo-accent: #FF6B6B;
+      --neo-secondary: #FFD93D;
+      --neo-muted: #C4B5FD;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Space Grotesk', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--neo-bg);
+      color: var(--neo-ink);
+      line-height: 1.5;
+    }
+
+    .page-wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .noise-bg {
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 3.5rem;
+    }
+
+    header {
+      border-bottom: 4px solid var(--neo-ink);
+      background-color: var(--neo-secondary);
+      box-shadow: 0 8px 0 0 var(--neo-ink);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0.9rem;
+      border: 4px solid var(--neo-ink);
+      background-color: #FFFFFF;
+      box-shadow: 4px 4px 0 0 var(--neo-ink);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.8rem;
+    }
+
+    .logo-mark {
+      width: 18px;
+      height: 18px;
+      background-color: var(--neo-accent);
+      border: 3px solid var(--neo-ink);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--neo-ink);
+      padding: 0.25rem 0.6rem;
+      border: 2px solid transparent;
+    }
+
+    .nav-links a:hover {
+      border-color: var(--neo-ink);
+      background-color: var(--neo-accent);
+      box-shadow: 4px 4px 0 0 var(--neo-ink);
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .hero {
+      padding-top: 2.5rem;
+      padding-bottom: 3.5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: stretch;
+    }
+
+    @media (max-width: 768px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hero-title {
+      font-size: clamp(2.6rem, 4vw + 1.4rem, 4.2rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-title span.highlight {
+      display: inline-block;
+      padding: 0.15rem 0.4rem;
+      background-color: var(--neo-accent);
+      border: 4px solid var(--neo-ink);
+      box-shadow: 6px 6px 0 0 var(--neo-ink);
+      transform: rotate(-2deg);
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      font-weight: 700;
+      max-width: 34rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .badge-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.3rem 0.9rem;
+      border-radius: 999px;
+      border: 4px solid var(--neo-ink);
+      background-color: var(--neo-secondary);
+      box-shadow: 4px 4px 0 0 var(--neo-ink);
+      font-size: 0.75rem;
+      font-weight: 900;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .badge.alt {
+      background-color: var(--neo-muted);
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.75rem 1.6rem;
+      border: 4px solid var(--neo-ink);
+      box-shadow: 6px 6px 0 0 var(--neo-ink);
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 0.14em;
+      font-weight: 900;
+      background-color: #FFFFFF;
+      color: var(--neo-ink);
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.1s linear, box-shadow 0.1s linear, background-color 0.1s linear;
+    }
+
+    .btn-primary {
+      background-color: var(--neo-accent);
+    }
+
+    .btn-secondary {
+      background-color: var(--neo-secondary);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 8px 8px 0 0 var(--neo-ink);
+    }
+
+    .btn:active {
+      transform: translate(2px, 2px);
+      box-shadow: none;
+    }
+
+    .hero-note {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .hero-visual {
+      position: relative;
+      border: 4px solid var(--neo-ink);
+      background-color: #FFFFFF;
+      box-shadow: 12px 12px 0 0 var(--neo-ink);
+      padding: 1.5rem;
+      overflow: hidden;
+    }
+
+    .hero-tag {
+      position: absolute;
+      top: 1rem;
+      left: -1.2rem;
+      padding: 0.3rem 1.2rem;
+      background-color: var(--neo-secondary);
+      border: 4px solid var(--neo-ink);
+      box-shadow: 4px 4px 0 0 var(--neo-ink);
+      font-size: 0.75rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      transform: rotate(-6deg);
+    }
+
+    .hero-soundwave {
+      height: 110px;
+      border: 4px solid var(--neo-ink);
+      background-image:
+        linear-gradient(90deg, rgba(0,0,0,0.08) 1px, transparent 1px),
+        repeating-linear-gradient(90deg, var(--neo-accent) 0 6px, transparent 6px 12px),
+        repeating-linear-gradient(180deg, var(--neo-muted) 0 12px, transparent 12px 24px);
+      background-size: 20px 100%, 40px 100%, 100% 24px;
+      margin-bottom: 1rem;
+    }
+
+    .hero-languages {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-weight: 900;
+      font-size: 0.8rem;
+    }
+
+    .lang-pill {
+      padding: 0.25rem 0.7rem;
+      border: 3px solid var(--neo-ink);
+      background-color: var(--neo-secondary);
+      transform: rotate(-2deg);
+      box-shadow: 3px 3px 0 0 var(--neo-ink);
+    }
+
+    .lang-pill:nth-child(2n) {
+      background-color: var(--neo-muted);
+      transform: rotate(3deg);
+    }
+
+    .hero-number {
+      position: absolute;
+      right: -0.4rem;
+      bottom: -0.9rem;
+      font-size: 3.2rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      padding: 0.25rem 0.8rem;
+      border: 4px solid var(--neo-ink);
+      background-color: var(--neo-accent);
+      box-shadow: 6px 6px 0 0 var(--neo-ink);
+      transform: rotate(-4deg);
+    }
+
+    section {
+      padding: 2.5rem 0 3rem;
+      border-top: 4px solid var(--neo-ink);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .section-kicker {
+      font-size: 0.8rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      padding: 0.25rem 0.75rem;
+      border: 3px solid var(--neo-ink);
+      background-color: var(--neo-secondary);
+      box-shadow: 4px 4px 0 0 var(--neo-ink);
+    }
+
+    .section-title {
+      font-size: 1.9rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.03em;
+    }
+
+    .section-title span {
+      background-color: var(--neo-muted);
+      padding: 0.1rem 0.4rem;
+      border: 3px solid var(--neo-ink);
+      box-shadow: 4px 4px 0 0 var(--neo-ink);
+    }
+
+    .section-subtitle {
+      font-size: 0.95rem;
+      font-weight: 700;
+      max-width: 34rem;
+    }
+
+    .mission-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 2.25rem;
+      align-items: start;
+    }
+
+    @media (max-width: 768px) {
+      .mission-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .mission-copy p {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.9rem;
+    }
+
+    .mission-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.75rem;
+    }
+
+    .stat {
+      padding: 0.75rem 1rem;
+      border: 4px solid var(--neo-ink);
+      background-color: #FFFFFF;
+      box-shadow: 6px 6px 0 0 var(--neo-ink);
+      font-weight: 900;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.25rem;
+    }
+
+    .mission-graphic {
+      border: 4px solid var(--neo-ink);
+      background-color: #FFFFFF;
+      box-shadow: 10px 10px 0 0 var(--neo-ink);
+      padding: 1.5rem;
+      position: relative;
+    }
+
+    .map-box {
+      border: 4px dashed var(--neo-ink);
+      padding: 1.2rem 1rem;
+      text-align: center;
+      margin-bottom: 1rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .language-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 0.8rem;
+    }
+
+    .language-tag {
+      padding: 0.25rem 0.6rem;
+      border: 3px solid var(--neo-ink);
+      background-color: var(--neo-secondary);
+    }
+
+    .focus-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .focus-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      border: 4px solid var(--neo-ink);
+      background-color: #FFFFFF;
+      box-shadow: 8px 8px 0 0 var(--neo-ink);
+      padding: 1.3rem 1.2rem 1.4rem;
+      position: relative;
+      transition: transform 0.15s linear, box-shadow 0.15s linear;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 12px 12px 0 0 var(--neo-ink);
+    }
+
+    .card-icon {
+      display: inline-block;
+      padding: 0.4rem 0.8rem;
+      border: 3px solid var(--neo-ink);
+      background-color: var(--neo-secondary);
+      font-size: 0.8rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 900;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-body {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .card-tag {
+      position: absolute;
+      top: -0.8rem;
+      right: -0.3rem;
+      padding: 0.2rem 0.7rem;
+      border: 3px solid var(--neo-ink);
+      background-color: var(--neo-muted);
+      font-size: 0.7rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      transform: rotate(5deg);
+      box-shadow: 4px 4px 0 0 var(--neo-ink);
+    }
+
+    .roadmap {
+      background-color: var(--neo-secondary);
+    }
+
+    .roadmap-steps {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .roadmap-steps {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .step {
+      border: 4px solid var(--neo-ink);
+      background-color: #FFFFFF;
+      box-shadow: 8px 8px 0 0 var(--neo-ink);
+      padding: 1.25rem 1.2rem 1.4rem;
+      position: relative;
+    }
+
+    .step-phase {
+      font-size: 0.8rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 0.45rem;
+    }
+
+    .step-title {
+      font-size: 1.05rem;
+      font-weight: 900;
+      margin-bottom: 0.5rem;
+    }
+
+    .step-body {
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .step-label {
+      position: absolute;
+      top: -0.85rem;
+      left: -0.2rem;
+      padding: 0.2rem 0.75rem;
+      border: 3px solid var(--neo-ink);
+      background-color: var(--neo-accent);
+      font-size: 0.7rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      transform: rotate(-6deg);
+      box-shadow: 4px 4px 0 0 var(--neo-ink);
+    }
+
+    footer {
+      border-top: 4px solid var(--neo-ink);
+      background-color: var(--neo-bg);
+    }
+
+    .footer-inner {
+      padding-top: 1.5rem;
+      padding-bottom: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .footer-inner a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 2px solid var(--neo-ink);
+    }
+
+    .footer-inner a:hover {
+      background-color: var(--neo-secondary);
+    }
+  </style>
+</head>
+<body class="noise-bg">
+  <div class="page-wrapper">
+    <header>
+      <div class="container nav">
+        <div class="logo">
+          <div class="logo-mark"></div>
+          <span>IndicLLMs</span>
+        </div>
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="#mission">Mission</a>
+          <a href="#focus">What we build</a>
+          <a href="#roadmap">Roadmap</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="hero" id="top">
+        <div class="container hero-grid">
+          <div>
+            <h1 class="hero-title">
+              IndicLLMs:
+              <span class="highlight">Giving India a Voice in AI</span>
+            </h1>
+            <p class="hero-subtitle">
+              An open, community–driven initiative to build speech and language models that understand India — across scripts, accents, and dialects.
+            </p>
+            <div class="badge-strip">
+              <div class="badge">Open source first</div>
+              <div class="badge alt">Community research</div>
+            </div>
+            <p class="hero-note">Built in India. For 1.4B voices.</p>
+          </div>
+
+          <aside class="hero-visual" aria-label="Illustration of Indic languages and soundwaves">
+            <div class="hero-tag">Sticker lab</div>
+            <div class="hero-soundwave"></div>
+            <div class="hero-languages">
+              <div class="lang-pill">हिन्दी</div>
+              <div class="lang-pill">தமிழ்</div>
+              <div class="lang-pill">বাংলা</div>
+              <div class="lang-pill">తెలుగు</div>
+              <div class="lang-pill"> ಕನ್ನಡ</div>
+              <div class="lang-pill">മലയാളം</div>
+              <div class="lang-pill">मराठी</div>
+              <div class="lang-pill">ਪੰਜਾਬੀ</div>
+            </div>
+            <div class="hero-number">22+ langs</div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Mission -->
+      <section id="mission">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Why we exist</div>
+              <h2 class="section-title">1.4 Billion People. <span>1 Open Ecosystem.</span></h2>
+            </div>
+            <p class="section-subtitle">
+              Mainstream AI systems under–represent Indic languages. IndicLLMs is a public effort to collect datasets, train models, and release tools that speak and listen natively.
+            </p>
+          </div>
+
+          <div class="mission-grid">
+            <div class="mission-copy">
+              <p>
+                India is not one language – it is hundreds of scripts, dialects, and code–mixed realities. Closed–source models rarely center this complexity.
+              </p>
+              <p>
+                We focus on open data, transparent training runs, and community evaluation so anyone can build on top of strong Indic speech and language foundations.
+              </p>
+              <div class="mission-stats">
+                <div class="stat">
+                  <strong>1.4B+</strong>
+                  People whose voices deserve native AI support.
+                </div>
+                <div class="stat">
+                  <strong>22+</strong>
+                  Official languages, hundreds of vibrant dialects.
+                </div>
+              </div>
+            </div>
+
+            <aside class="mission-graphic" aria-label="Indic language variety graphic">
+              <div class="map-box">India’s linguistic mesh</div>
+              <div class="language-grid">
+                <div class="language-tag">Devanagari</div>
+                <div class="language-tag">Tamil</div>
+                <div class="language-tag">Bengali</div>
+                <div class="language-tag">Gurmukhi</div>
+                <div class="language-tag">Gujarati</div>
+                <div class="language-tag">Odia</div>
+                <div class="language-tag">Urdu</div>
+                <div class="language-tag">More…</div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- Core Focus -->
+      <section id="focus">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">What we build</div>
+              <h2 class="section-title">Core <span>technical pillars</span></h2>
+            </div>
+            <p class="section-subtitle">
+              From raw audio to aligned language models, IndicLLMs focuses on three pillars that turn India’s speech into open infrastructure.
+            </p>
+          </div>
+
+          <div class="focus-grid">
+            <article class="card">
+              <div class="card-tag">In progress</div>
+              <div class="card-icon">TTS · Speak</div>
+              <h3 class="card-title">Text–to–Speech (TTS)</h3>
+              <p class="card-body">
+                High–quality, locally flavoured voices that can read Indic text naturally – not as an afterthought.
+              </p>
+              <p class="card-body">
+                Multi–speaker, multi–language TTS models with open licenses and tools for fine–tuning.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="card-tag">Active</div>
+              <div class="card-icon">STT · Listen</div>
+              <h3 class="card-title">Speech–to–Text (STT)</h3>
+              <p class="card-body">
+                Robust recognition for accents, code–mixing, and noisy real–world audio from Indian environments.
+              </p>
+              <p class="card-body">
+                Datasets and baselines that let builders plug Indic speech into any product.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="card-tag">Next</div>
+              <div class="card-icon">LLMs · Understand</div>
+              <h3 class="card-title">Indic Language Models</h3>
+              <p class="card-body">
+                Fine–tuned open–source LLMs that read and write Indian languages with cultural and linguistic context.
+              </p>
+              <p class="card-body">
+                Aligned for civic, educational, and developer use – not locked behind proprietary APIs.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Roadmap -->
+      <section id="roadmap" class="roadmap">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Where we’re headed</div>
+              <h2 class="section-title">IndicLLMs <span>roadmap</span></h2>
+            </div>
+            <p class="section-subtitle">
+              We are building in the open – from community to datasets to production–ready speech and language models.
+            </p>
+          </div>
+
+          <div class="roadmap-steps">
+            <article class="step">
+              <div class="step-label">Phase 1</div>
+              <div class="step-phase">The foundation</div>
+              <h3 class="step-title">Community &amp; datasets</h3>
+              <p class="step-body">
+                Organising contributors, defining data standards, and curating open speech and text corpora across Indic languages.
+              </p>
+            </article>
+
+            <article class="step">
+              <div class="step-label">Phase 2</div>
+              <div class="step-phase">The voice</div>
+              <h3 class="step-title">Indic TTS / STT models</h3>
+              <p class="step-body">
+                Training and releasing the first wave of open Indic TTS and STT models with recipes, benchmarks, and demos.
+              </p>
+            </article>
+
+            <article class="step">
+              <div class="step-label">Phase 3</div>
+              <div class="step-phase">The mind</div>
+              <h3 class="step-title">Native Indic LLMs</h3>
+              <p class="step-body">
+                Fine–tuning, aligning, and serving Indic LLMs that understand local context, not just translate from English.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-inner">
+        <span>Made with ❤ in India · IndicLLMs</span>
+        <span>
+          <a href="#top">Back to top</a>
+        </span>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

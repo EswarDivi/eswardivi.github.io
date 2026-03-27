@@ -6,10 +6,10 @@ export const RESUME_DATA = {
   location: "Andhra Pradesh, India",
   locationLink: "https://www.google.com/maps/place/Andhra+Pradesh/",
   about:
-    "Currently Playing with LLMs",
+    "AI/ML Engineer · Computer Vision · LLMs · Agentic Systems",
   personalWebsiteUrl: "https://eswardivi.github.io/",
   summary:
-    "As an AI Engineer, I specialize at converting ideas into deployable models. I am a Computer Science student specializing in Artificial Intelligence, with a strong academic background. I am particularly interested in computer vision, natural language processing (NLP), and generative AI. I enjoy working on efficient deep learning models and have developed innovative AI solutions throughout my academic career.",
+    "AI/ML Engineer with expertise in computer vision, LLM-powered agentic systems, and production-grade deployment. Published researcher with hands-on experience building and scaling AI solutions across safety monitoring, enterprise intelligence, and NLP — from prototype to production.",
   avatarUrl: "https://avatars.githubusercontent.com/u/76403422?v=4",
   contact: {
     email: "eswar.divi.902@gmail.com",
@@ -40,9 +40,9 @@ export const RESUME_DATA = {
   },
   education: [
     {
-      school: "Amrita Vishwa Vidyapeetham",
-      degree: "Bachelor's Degree in Computer Science with Artificial Intelligence",
-      start: "2024",
+      school: "Amrita School of Artificial Intelligence, Amrita Vishwa Vidyapeetham",
+      degree: "B.Tech in Computer Science and Engineering (Artificial Intelligence) · CGPA: 8.77/10",
+      start: "2020",
       end: "2024",
     },
   ],
@@ -52,14 +52,12 @@ export const RESUME_DATA = {
       link: "https://www.slb.com/",
       badges: ["Onsite"],
       title: "Data Scientist",
-      start: "2024 July",
+      start: "July 2024",
       end: "Present",
       description: [
-        "Contributes to the Digital Factory AI for Safety & Operations platform, improving safety, compliance, and efficiency across 30+ locations and 800+ cameras.",
-        "Developed and optimized computer vision models for hard hat detection, coverall detection, and real-time forklift proximity monitoring.",
-        "Enhanced mechanical lifting compliance detection, improving alert accuracy from 70% to 90% by introducing a depth-estimation model and upgrading to VideoMAE video classification.",
-        "Built the \"People Finder - AI Knowledge Agent,\" an AI chatbot for employee queries using an internal People Database.",
-        "Used LangChain and LangGraph for agentic workflows and implemented hybrid retrieval pipelines using SQL-based filters and vector embeddings."
+        "Digital Factory – AI-Powered Safety & Operations: Engineered a computer vision platform monitoring compliance across 30+ facilities and 800+ cameras; fine-tuned YOLO models for PPE detection and forklift proximity alerts, deployed via TorchServe with torchao quantization for production inference.",
+        "Resolved false positives in lifting compliance by integrating monocular depth estimation to correct perspective distortions; replaced frame-level classification with VideoMAE video classification, improving alert accuracy from 70% to 90%.",
+        "People Finder – Enterprise Expert & Org Intelligence Agent: Co-designed an LLM-powered agentic system serving 1,000+ employees, enabling natural-language queries over reporting structures, skill directories, and org data; architected multi-step reasoning using LangChain and LangGraph with hybrid SQL + vector retrieval."
       ],
     },
     {
@@ -67,22 +65,51 @@ export const RESUME_DATA = {
       link: "https://www.slb.com/",
       badges: ["Onsite"],
       title: "Data Scientist Intern",
-      start: "2023 June",
-      end: "2023 August",
+      start: "June 2023",
+      end: "August 2023",
       description: [
-        "Built deep learning-based product embeddings for Supply Chain Intelligence to recommend alternatives and support decision-making.",
-        "Designed a multi-task learning architecture using RFM attributes and product metadata to generate unified embeddings."
+        "Supply Chain Intelligence: Built a multi-task deep learning model generating unified product embeddings from RFM attributes and metadata, enabling alternative product recommendations for supply chain decision-making.",
+        "Designed a hybrid MLP-Transformer backbone applying self-attention over categorical and continuous RFM features; shared representations jointly optimized across multiple downstream tasks for robust per-product embeddings."
       ],
     },
   ],
   skills: [
-    "Deep Learning: PyTorch, Lightning AI, Transformers",
-    "LLMs: Langchain, Llamaindex, Langgraph",
-    "Databases: MongoDB, Supabase, Pinecone",
-    "Languages: Python,JavaScript, SQL",
-    "Frameworks: Streamlit, FastAPI, Gradio"
+    "Languages: Python, SQL",
+    "ML/DL Frameworks: PyTorch, TensorFlow, Scikit-learn, HuggingFace Transformers, timm, YOLO, VideoMAE, TorchServe, torchao",
+    "LLM & Agents: LLM Fine-tuning, Model Merging, LangChain, LangGraph, RAG, Prompt Engineering",
+    "Tools & Deployment: Docker, FastAPI, Streamlit, Gradio, HuggingFace Spaces, AWS SageMaker, GCP, Supabase, pgvector"
   ],
   projects: [
+    {
+      title: "LumaBot: AI Customer Support SaaS",
+      techStack: [
+        "FastAPI",
+        "PostgreSQL",
+        "Qdrant",
+        "LlamaIndex",
+        "OpenAI",
+        "Docker",
+        "RAG",
+      ],
+      description:
+        "Built a multitenant SaaS platform for deploying AI chatbots; architected a RAG pipeline with Qdrant, LlamaIndex, and OpenAI embeddings over a FastAPI + PostgreSQL backend with real-time streaming, async ingestion, and Docker deployment.",
+      link: {
+        label: "Live Demo",
+        href: "https://lumabot.app/",
+      },
+    },
+    {
+      title: "MedGPT: Medical Diagnostic Chatbot",
+      techStack: [
+        "Python",
+        "LLaMA-2",
+        "QLoRA",
+        "RAG",
+        "Fine-tuning",
+      ],
+      description:
+        "Fine-tuned LLaMA-2 (7B) using QLoRA on a custom ~10K medical Q&A dataset built by scraping and translating Korean medical sources; augmented with a RAG pipeline for grounded, citation-backed responses.",
+    },
     {
       title: "ModelHub",
       techStack: [
@@ -93,9 +120,9 @@ export const RESUME_DATA = {
         "Python",
       ],
       description:
-        "ModelHub is a platform for sharing, discovering, and running machine learning models",
+        "ModelHub is a platform for sharing, discovering, and running machine learning models.",
       link: {
-        label: "github.com",
+        label: "modelhub.vercel.app",
         href: "https://modelhub.vercel.app/",
       },
     },
@@ -107,36 +134,11 @@ export const RESUME_DATA = {
         "Streamlit"
       ],
       description:
-        "Convert a convert articles from URLs into listenable audio Podcasts.",
+        "Convert articles from URLs into listenable audio podcasts.",
       link: {
-        label: "github.com",
+        label: "narrateit.streamlit.app",
         href: "https://narrateit.streamlit.app/",
       },
-    },
-    {
-      title: "ChatwithPDF",
-      techStack: [
-        "Python",
-        "Chromadb",
-        "LLMs",
-        "Streamlit",
-      ],
-      description: "A platform to chat with PDFs",
-      link: {
-        label: "github.com",
-        href: "https://chatwithpdf.streamlit.app/",
-      },
-    },
-    {
-      title: "MedGPT: GPT for Medical Diagnostics",
-      techStack: [
-        "Python",
-        "Llama 2",
-        "RAG",
-        "Fine-tuning",
-      ],
-      description:
-        "Developed a medical chatbot by fine-tuning the LLama 2 model using efficient fine-tuning methods. Additionally, incorporated the Retrieval Augmented Generation (RAG) to enhance the output quality of generated responses. For this project, dataset was created by translating an existing Korean dataset into English.",
     },
     {
       title: "RosBot: Self-Driven Robot with Obstacle Avoidance",
