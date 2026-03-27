@@ -74,10 +74,22 @@ export const RESUME_DATA = {
     },
   ],
   skills: [
-    "Languages: Python, SQL",
-    "ML/DL Frameworks: PyTorch, TensorFlow, Scikit-learn, HuggingFace Transformers, timm, YOLO, VideoMAE, TorchServe, torchao",
-    "LLM & Agents: LLM Fine-tuning, Model Merging, LangChain, LangGraph, RAG, Prompt Engineering",
-    "Tools & Deployment: Docker, FastAPI, Streamlit, Gradio, HuggingFace Spaces, AWS SageMaker, GCP, Supabase, pgvector"
+    {
+      category: "Languages",
+      items: ["Python", "SQL"],
+    },
+    {
+      category: "ML/DL Frameworks",
+      items: ["PyTorch", "TensorFlow", "Scikit-learn", "HuggingFace Transformers", "timm", "YOLO", "VideoMAE", "TorchServe", "torchao"],
+    },
+    {
+      category: "LLM & Agents",
+      items: ["LLM Fine-tuning", "Model Merging", "LangChain", "LangGraph", "RAG", "Prompt Engineering"],
+    },
+    {
+      category: "Tools & Deployment",
+      items: ["Docker", "FastAPI", "Streamlit", "Gradio", "HuggingFace Spaces", "AWS SageMaker", "GCP", "Supabase", "pgvector"],
+    },
   ],
   projects: [
     {

@@ -170,14 +170,19 @@ export default function Page() {
         </Section>
         <Section>
           <h2 className="text-xl font-bold">Skills</h2>
-          <div className="flex flex-wrap gap-1">
-            {RESUME_DATA.skills.map((skill) => {
-              return (
-                <Badge className="print:text-[10px]" key={skill}>
-                  {skill}
-                </Badge>
-              );
-            })}
+          <div className="flex flex-col gap-2">
+            {RESUME_DATA.skills.map((skillGroup) => (
+              <div key={skillGroup.category} className="flex flex-wrap items-center gap-1">
+                <span className="font-mono text-xs text-muted-foreground min-w-fit print:text-[10px]">
+                  {skillGroup.category}:
+                </span>
+                {skillGroup.items.map((item) => (
+                  <Badge className="print:text-[10px]" key={item}>
+                    {item}
+                  </Badge>
+                ))}
+              </div>
+            ))}
           </div>
         </Section>
 
